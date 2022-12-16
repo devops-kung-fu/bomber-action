@@ -3,7 +3,6 @@
 # and runs bomber scan on the SBOM generated from the Syft action
 
 VERSION=0.4.0
-SBOM=$1
 
 echo "Setting Up Bomber"
 wget --progress=bar:force:noscroll "https://github.com/devops-kung-fu/bomber/releases/download/v${VERSION}/bomber_${VERSION}_linux_arm64.deb" && sudo dpkg --install "bomber_${VERSION}_linux_arm64.deb"
