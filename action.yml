@@ -18,7 +18,6 @@ runs:
     - name: Generate SBOM
       uses: anchore/sbom-action@v0
       with:
-        format: cyclonedx
         artifact-name: bomber.cyclonedx.json
         path: .
         output-file: './bomber.cyclonedx.json'
