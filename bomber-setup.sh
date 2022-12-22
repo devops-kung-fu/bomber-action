@@ -5,9 +5,9 @@
 VERSION=0.4.0
 
 echo "Setting Up Bomber"
-wget --progress=bar:force:noscroll "https://github.com/devops-kung-fu/bomber/releases/download/v${VERSION}/bomber_${VERSION}_linux_arm64.deb" && sudo dpkg --install "bomber_${VERSION}_linux_arm64.deb"
+wget --progress=bar:force:noscroll "https://github.com/devops-kung-fu/bomber/releases/download/v${VERSION}/bomber_${VERSION}_linux_amd64.deb" && sudo dpkg --install "bomber_${VERSION}_linux_arm64.deb"
 
 # clean up remaining package
-rm "bomber_${VERSION}_linux_arm64.deb"
+rm "bomber_${VERSION}_linux_amd64.deb"
 echo "Running Bomber Scan on Generated SBOM"
 bomber scan bomber.cyclonedx.json --output=json > bomber_results.json
