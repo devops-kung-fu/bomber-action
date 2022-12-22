@@ -9,5 +9,5 @@ wget --progress=bar:force:noscroll "https://github.com/devops-kung-fu/bomber/rel
 
 # clean up remaining package
 rm "bomber_${VERSION}_linux_amd64.deb"
-echo "Running Bomber Scan on Generated SBOM"
+echo "Running Bomber Scan on Generated SBOM file"
 bomber scan bomber.cyclonedx.json --output=json > bomber_results.json
