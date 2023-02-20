@@ -1,0 +1,27 @@
+name: 'Bomber Scan Action'
+description: 'Action that generates a Software Bill of Materials and scans this bill for dependency vulnerabilities.'
+inputs:
+  repository:
+    description: 'repository to scan'
+    required: false
+outputs:
+  scan-summary:
+    description: 'Summary of the vulnerable dependencies in the given repo.'
+    value: ${{ steps.random-number-generator.outputs.random-number }}
+runs:
+  using: 'composite'
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - name: Generate SBOM
+      uses: anchore/sbom-action@v0
+      with:
+        artifact-name: bomber.cyclonedx.json
+        path: .
+        output-file: './bomber.cyclonedx.json'
+    - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+      shell: bash
+    - run: bomber-setup.sh
+      shell: bash
